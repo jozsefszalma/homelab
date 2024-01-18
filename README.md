@@ -1,6 +1,6 @@
 # Home Lab
 
-The bare metal in my basement goes BRRRRR  
+The bare metal in my basement   
 
 ## The Platform
 
@@ -31,6 +31,7 @@ If your only goal is to play with large AI models at home, then as of early-2024
 ### The Fans
 
 There are no words to describe how insane the [stock fans](https://www.delta-fan.com/technology/three-phase-fan/pfm0812he-01bfy.html) are. They literarily SCREAM and draw over 4 amps each at max speed...and there are 8 of them.  
+![Wind tunnel gif](images/wind-windy.gif)
 
 The first thing I did was obviously adjust the fan curves in the management console and enable the [ErP Lot 9](https://www.eceee.org/ecodesign/products/enterprise-servers/) mode in the BIOS (which, among other things, puts the 2nd power supply into cold standby at low loads). This helped getting the noise down to a bearable 60 dB at idle, but it was still very distracting.
 
@@ -82,4 +83,23 @@ The static charge seem to be dissipated by the metal rack, the rack is grounded,
 
 **The three panels (so not complete enclosure), got me approximately 10-12 dB decrease in noise levels**, so halved the perceived noise.
 
-### To be continued...
+### Finally, After a Lot of Crimping
+
+Once I crimped new connectors on the Arctic fans (for future reference, [Molex 22013077](https://www.molex.com/en-us/products/part-detail/22013077)) the noise levels decreased to the final 39 dB at idle (quiet library) and 55 dB during boot (dishwasher).  
+In exchange the CPU is running approximately 10C higher temperatures during Mixtral CPU inference (75C instead of 65C), which is still acceptable.  
+
+This is not the best possible result as
+
+* I didn't attempt to replace the power supply fans; as per the Internet lot of people try this and fail (these server PSU fans spin at constant speeds and if the fan is underpowered the PSU will slowly cook itself)
+* I haven't done anything comprehensive in terms of front and back covers (just the 10U height haphazard front covers visible on the above image); obviously most of the noise is escaping through the back...
+
+The PSU fans tend to change pitch for some reason (perhaps showing their age) and at high fan RPMs the case resonates (even with dampeners) so the work will need to continue...  
+
+![eye-twitch gif](images/eye.gif)
+
+## Power Draw
+
+"But Josef, what about your electricity bill?!" asked a colleague when learning about the dual 2.2 kW power supplies.  
+As per the management console the system (without GPUs) is drawing between 175 to 200 watts idle, 300 to 325 watts under load.  
+
+![this is fine meme, without flames](images/this-is-fine.jpg)
