@@ -18,7 +18,7 @@ I assume the price was 'right' because majority of the business workloads these 
 
 Why this is generally a bad idea and PITA.  
 
-If your only goal is to play with large AI models at home, then as of early-2024 a Threadripper-based workstation (or perhaps a beefy M2/M3-based Mac) would be a much better, although more expensive idea.  
+If your only goal is to play with large AI models at home, then as of early-2024 a Threadripper-based workstation (or perhaps a beefy M2/M3-based Mac) would be a much better, although more expensive option.  
 
 * **Physical Dimensions:** this thing is huge (and heavy); in order to accommodate the 8 GPUs the case is over 80 cm deep, which means finding (and transporting) a cheap rack for it is not easy.  
 ![Warning sticker](images/two_person_lift.jpeg)  
@@ -52,7 +52,7 @@ This is how I found Arctic's 10k server fans. Arctic doesn't seem to disclose no
 |------|------|------|------|-----|-----|
 | ARCTIC S8038-10K | 51 mm H₂O | 2.89 m³/h | ? | 500 | 10000
 
-Only later did I learn that while the Arctic fans can spin as slow as 500 RPM, the warning thresholds in BIOS will reset to 1500 (non-critical) / 1250 (critical) after a reboot, which means the fan controller will try to compensate the delinquent slow spinning fans by spinning everything up to max speed temporarily. I decided to set the fan curves to 15% at idle, 1650 RPM.  
+Only later did I learn that while the Arctic fans can spin as slow as 500 RPM, the warning thresholds in BIOS will reset to 1500 (non-critical) / 1200 (critical) after a reboot, which means the fan controller will try to compensate the delinquent slow spinning fans by spinning everything up to max speed temporarily. I decided to set the fan curves to 15% at idle, 1650 RPM.  
 Not great, not terrible.  
 
 The next challenge was connecting the new fans as the fan header is not a standard PC header.
