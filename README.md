@@ -1,16 +1,16 @@
 # Home Lab
 
-The bare metal in my basement   
+The bare metal in my basement  
 
 ## The Platform
 
-To build the 2024 version of my home lab I got a used [Gigabyte G292-Z20 HPC/AI Server](https://www.gigabyte.com/Enterprise/GPU-Server/G292-Z20-rev-100) through eBay.  
+For my home lab I bought a used [Gigabyte G292-Z20 HPC/AI Server](https://www.gigabyte.com/Enterprise/GPU-Server/G292-Z20-rev-100) through eBay in January 2024.  
 
 This is basically a data center server intended for AI workloads; for those who regularly work with AWS, this is roughly the equivalent to the hardware behind the [Amazon EC2 G4dn Instances](https://aws.amazon.com/ec2/instance-types/g4/).  
 
 I purchased it without the GPUs (it can accommodate 8x double slot Nvidia T4 or V100 cards), but it is still ridiculously overpowered (24 core CPU, 8 channel 512GB DDR4 ECC2 memory, two 2.2 kW power supplies, two 10GbE network connections etc).  
 
-I assume the price was 'right' because majority of the business workloads these days are running on A10 or A100 GPUs, so a server that was designed for the Volta/Turning architectures is somewhat passé for enterprises and who else would be crazy enough to purchase something like this right?
+I assume the price was 'right' because majority of the business workloads these days are running on at least A10 or A100 GPUs, so a server that was designed for the Volta/Turning architectures is somewhat passé for enterprise deployment and who else would be crazy enough to purchase something like this right?
 
 ![G292 Z20](images/G292_Z20_official_1.png)
 
@@ -33,7 +33,7 @@ If your only goal is to play with large AI models at home, then as of early-2024
 There are no words to describe how insane the [stock fans](https://www.delta-fan.com/technology/three-phase-fan/pfm0812he-01bfy.html) are. They literarily SCREAM and draw over 4 amps each at max speed...and there are 8 of them.  
 ![Wind tunnel gif](images/wind-windy.gif)
 
-The first thing I did was obviously adjust the fan curves in the management console and enable the [ErP Lot 9](https://www.eceee.org/ecodesign/products/enterprise-servers/) mode in the BIOS (which, among other things, puts the 2nd power supply into cold standby at low loads). This helped getting the noise down to a bearable 60 dB at idle, but it was still very distracting.
+The first thing I did was obviously adjust the fan curves in the management console and enable the [ErP Lot 9](https://www.eceee.org/ecodesign/products/enterprise-servers/) mode in the BIOS (which, among other things, puts the 2nd power supply into cold standby at low loads). This helped getting the noise down to a bearable 60 dB at idle, but this level was still very distracting.
 
 At first I was thinking of replacing the stock fans with some Noctua fans and call it a day, however let's compare some specs here (all 80mm 12V fans):  
 
@@ -46,13 +46,15 @@ Since I don't want to gut the cooling capabilities of the system entirely, I can
 
 I decided to try and optimize the idle fan speed instead, since the stock fans don't go below 3000 RPM.  
   
-This is how I found Arctic's 10k server fans. Arctic doesn't seem to disclose noise levels (apart from the fans being 'quiet'), however they have reasonable static pressure and air flow performance and can spin as slow as 500 RPM.  
+This is how I found Arctic's 10k server fans. Arctic doesn't seem to disclose noise levels (apart from the fans being 'quiet'), however they have reasonable static pressure, air flow performance and can spin as slow as 500 RPM.  
 
 | type | Static Pressure | Air Flow | Noise (dB) | min RPM | max RPM
 |------|------|------|------|-----|-----|
 | ARCTIC S8038-10K | 51 mm H₂O | 2.89 m³/h | ? | 500 | 10000
 
-Only later did I learn that while the Arctic fans can spin as slow as 500 RPM, the warning thresholds in BIOS will reset to 1500 (non-critical) / 1200 (critical) after a reboot, which means the fan controller will try to compensate the delinquent slow spinning fans by spinning everything up to max speed temporarily. I decided to set the fan curves to 15% at idle, 1650 RPM.  
+Only later did I learn that while the Arctic fans can spin as slow as 500 RPM, the warning thresholds in BIOS will reset to 1500 (non-critical) / 1200 (critical) after a reboot, which means the fan controller will try to compensate the delinquent slow spinning fans by spinning everything up to max speed temporarily.  
+To compromise I set the fan curves to 15% at idle, 1650 RPM.  
+
 Not great, not terrible.  
 
 The next challenge was connecting the new fans as the fan header is not a standard PC header.
@@ -66,10 +68,12 @@ Based on this I assume the extra black and red wires are just there to ensure th
 For reference, the pinout of the Arctic (or any normal PC fan):  
 ![Pinout PC fans](images/artic_pinout.jpeg)  
 
-Since I didn't have a 7 pin Molex connector or the proper crimping tool (and I didn't want to cut the connectors off the original fans just yet), I worked on the rack while I waited for the connectors to arrive.  
+Since I didn't have the right 7 pin Molex connectors or the proper crimping tool (and I didn't want to cut the connectors off the original fans just yet), I worked on the rack while I waited for the connectors to arrive.  
 
 ### The Rack
-The cheapest suitable rack I found that I didn't need to rent a truck to transport was StarTech's open frame server rack line. It looks deceptively timid on marketing photos, but it has excellent build quality. However the fact that this was an open frame rack didn't help the noise level situation.  
+The cheapest suitable rack I found that I didn't need to rent a truck to transport was StarTech's open frame server rack line. It looks deceptively timid on marketing photos, but it has excellent build quality.  
+
+However the fact that this was an open frame rack didn't help the noise level situation.  
 
 ![The rack](images/rack.jpg)
 
@@ -81,19 +85,19 @@ Both MDF and the foam have excellent acoustic properties, but both do accumulate
 
 The static charge seem to be dissipated by the metal rack, the rack is grounded, the server is also grounded and enclosed, so not an immediate concern.  
 
-**The three panels (so not complete enclosure), got me approximately 10-12 dB decrease in noise levels**, so halved the perceived noise.
+**The three panels (so not complete enclosure), got me approximately 10 dB decrease in noise levels**, so halved the perceived noise.
 
 ### Finally, After a Lot of Crimping
 
-Once I crimped new connectors on the Arctic fans (for future reference, [Molex 22013077](https://www.molex.com/en-us/products/part-detail/22013077)) the noise levels decreased to the final 39 dB at idle (quiet library) and 55 dB during boot (dishwasher).  
+Once I crimped new connectors on the Arctic fans (for future reference, [Molex 22013077](https://www.molex.com/en-us/products/part-detail/22013077)) **the noise levels decreased to 39 dB at idle (quiet library) and 55 dB during boot (dishwasher)**.  
 In exchange the CPU is running approximately 10C higher temperatures during Mixtral CPU inference (75C instead of 65C), which is still acceptable.  
 
 This is not the best possible result as
 
 * I didn't attempt to replace the power supply fans; as per the Internet lot of people try this and fail (these server PSU fans spin at constant speeds and if the fan is underpowered the PSU will slowly cook itself)
-* I haven't done anything comprehensive in terms of front and back covers (just the 10U height haphazard front covers visible on the above image); obviously most of the noise is escaping through the back...
+* I haven't done anything in terms of the back covers yet; obviously most of the noise is escaping through the back...
 
-The PSU fans tend to change pitch for some reason (perhaps showing their age) and at high fan RPMs the case resonates (even with dampeners) so the work will need to continue...  
+The PSU fans tend to slightly change pitch for some reason (perhaps showing their age) and at high CPU fan RPMs the case resonates (even with rubber dampeners) so the work will need to continue...  
 
 ![eye-twitch gif](images/eye.gif)
 
@@ -103,3 +107,8 @@ The PSU fans tend to change pitch for some reason (perhaps showing their age) an
 As per the management console the system (without GPUs) is drawing between 175 to 200 watts idle, 300 to 325 watts under load.  
 
 ![this is fine meme, without flames](images/this-is-fine.jpg)
+
+## Safety First
+
+Obligatory disclaimer: in case I observe any sudden drops in loss, I will operate the AI-safety equipment as illustrated below.
+![Alt text](images/ai_safety.png)
