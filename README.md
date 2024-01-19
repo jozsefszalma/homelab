@@ -82,7 +82,7 @@ While waiting for the fan connectors to arrive, I decided to take some unorthodo
 
 ![Rack with acoustic panels](images/three_sides.png)
 
-Both MDF and the foam have good acoustic properties, but both do accumulate static electricity and they both shed some dust particles. So, yea not ideal for computers.  
+Both MDF and the foam have good acoustic properties, but both do accumulate static electricity and both shed some dust particles. So, yea not ideal for computers.  
 
 The static charge seem to be dissipated by the metal rack, the rack is grounded, the server is also grounded and enclosed, so not an immediate concern.  
 
