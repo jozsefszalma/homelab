@@ -6,9 +6,9 @@ The bare metal in my basement
 
 For my home lab I bought a used [Gigabyte G292-Z20 HPC/AI Server](https://www.gigabyte.com/Enterprise/GPU-Server/G292-Z20-rev-100) through eBay in January 2024.  
 
-This is basically a data center server intended for AI workloads; for those who regularly work with AWS, this is roughly the equivalent to the hardware behind the [Amazon EC2 G4dn Instances](https://aws.amazon.com/ec2/instance-types/g4/).  
+This is basically a data center server intended for AI workloads; for those who regularly work with AWS, this is roughly comparable to the technology behind the [Amazon EC2 G4dn Instances](https://aws.amazon.com/ec2/instance-types/g4/).  
 
-I purchased it without the GPUs (it can accommodate 8x double slot Nvidia T4 or V100 cards), but it is still ridiculously overpowered (24 core CPU, 8 channel 512GB DDR4 ECC2 memory, two 2.2 kW power supplies, two 10GbE network connections etc).  
+I purchased it without the GPUs (it can accommodate 8x double slot Nvidia T4 or V100 cards), but it is still ridiculously overpowered as-is (24 core CPU, 8 channel 512GB DDR4 ECC2 memory, two 2.2 kW power supplies, two 10GbE network connections etc).  
 
 I assume the price was 'right' because majority of the business workloads these days are running on at least A10 or A100 GPUs, so a server that was designed for the Volta/Turning architectures is somewhat passé for enterprise deployment and who else would be crazy enough to purchase something like this right?
 
@@ -18,7 +18,7 @@ I assume the price was 'right' because majority of the business workloads these 
 
 Why this is generally a bad idea and PITA.  
 
-If your only goal is to play with large AI models at home, then as of early-2024 a Threadripper-based workstation (or perhaps a beefy M2/M3-based Mac) would be a much better, although more expensive option.  
+If your only goal is to play with large AI models at home, then as of early-2024 a Threadripper-based workstation (or perhaps a high-end M2/M3-based Mac) would be a much better, although more expensive option.  
 
 * **Physical Dimensions:** this thing is huge (and heavy); in order to accommodate the 8 GPUs the case is over 80 cm deep, which means finding (and transporting) a cheap rack for it is not easy.  
 ![Warning sticker](images/two_person_lift.jpeg)  
@@ -74,7 +74,7 @@ Since I didn't have the right 7 pin Molex connectors or the proper crimping tool
 ### The Rack
 The cheapest suitable rack I found that I didn't need to rent a truck to transport was StarTech's open frame server rack line. It looks deceptively timid on marketing photos, but it has excellent build quality.  
 
-However the fact that this was an open frame rack didn't help the noise level situation.  
+However, the fact that this was an open frame rack didn't help the noise level situation.  
 
 ![The rack](images/rack.jpg)
 
@@ -82,7 +82,7 @@ While waiting for the fan connectors to arrive, I decided to take some unorthodo
 
 ![Rack with acoustic panels](images/three_sides.png)
 
-Both MDF and the foam have excellent acoustic properties, but both do accumulate static electricity and they both do shed some dust particles. So, yea not ideal for computers.  
+Both MDF and the foam have good acoustic properties, but both do accumulate static electricity and they both shed some dust particles. So, yea not ideal for computers.  
 
 The static charge seem to be dissipated by the metal rack, the rack is grounded, the server is also grounded and enclosed, so not an immediate concern.  
 
@@ -98,7 +98,7 @@ This is not the best possible result as
 * I didn't attempt to replace the power supply fans; as per the Internet lot of people try this and fail (these server PSU fans spin at constant speeds and if the fan is underpowered the PSU will slowly cook itself)
 * I haven't done anything in terms of the back covers yet; obviously most of the noise is escaping through the back...
 
-The PSU fans tend to slightly change pitch for some reason (perhaps showing their age) and at high CPU fan RPMs the case resonates (even with rubber dampeners) so the work will need to continue...  
+The PSU fans tend to change pitch slightly for some reason (perhaps showing their age) and at high CPU fan RPMs the case resonates (even with rubber dampeners) so the work will need to continue...  
 
 ![eye-twitch gif](images/eye.gif)
 
