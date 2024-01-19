@@ -61,7 +61,8 @@ The next challenge was connecting the new fans as the fan header is not a standa
 ![Fan header](images/fan_header.png)
 
 It looks like a 7 pin Molex connector, with 6 leads connected, while 4 wires leading to fan.  
-The pinout of the original fan was available on the manufacturer's site.
+The pinout of the original fan was available on the manufacturer's site.  
+
 ![Pinout 7 pin Molex](images/pinout.png)  
 Based on this I assume the extra black and red wires are just there to ensure the connector can deliver the amperage needed by the fan.  
 
