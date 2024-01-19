@@ -111,5 +111,5 @@ As per the management console the system (without GPUs) is drawing between 175 t
 
 ## Safety First
 
-Obligatory disclaimer: in case I observe any sudden drops in loss, I will operate the AI-safety equipment as illustrated below.
+Obligatory disclaimer: in case I observe any sudden drops in loss, I will operate the AI-safety equipment illustrated below.
 ![Alt text](images/ai_safety.png)
