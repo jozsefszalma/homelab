@@ -95,7 +95,7 @@ In exchange the CPU is running approximately 10C higher temperatures during Mixt
 
 This is not the best possible result as
 
-* I didn't attempt to replace the power supply fans; as per the Internet lot of people try this and fail (these server PSU fans spin at constant speeds and if the fan is underpowered the PSU will slowly cook itself)
+* I didn't attempt to replace the power supply fans; as per the Internet lot of people try this and fail (something about underpowered fans and the PSU slowly cooking itself)
 * I haven't done anything in terms of the back covers yet; obviously most of the noise is escaping through the back...
 
 The PSU fans tend to change pitch slightly for some reason (perhaps showing their age) and at high CPU fan RPMs the case resonates (even with rubber dampeners) so the work will need to continue...  
