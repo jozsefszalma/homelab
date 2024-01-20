@@ -50,7 +50,7 @@ This is how I found Arctic's 10k server fans. Arctic doesn't seem to disclose no
 
 | type | Static Pressure | Air Flow | Noise (dB) | min RPM | max RPM
 |------|------|------|------|-----|-----|
-| ARCTIC S8038-10K | 51 mm H₂O | 2.89 m³/h | ? | 500 | 10000
+| ARCTIC S8038-10K | 51 mm H₂O | 2.89 m³/min | ? | 500 | 10000
 
 Only later did I learn that while the Arctic fans can spin as slow as 500 RPM, the warning thresholds in BIOS will reset to 1500 (non-critical) / 1200 (critical) after a reboot, which means the fan controller will try to compensate the delinquent slow spinning fans by spinning everything up to max speed temporarily.  
 To compromise I set the fan curves to 15% at idle, 1650 RPM.  
