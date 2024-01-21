@@ -102,16 +102,15 @@ The PSU fans tend to change pitch slightly for some reason (perhaps showing thei
 
 ![eye-twitch gif](images/eye.gif)
 
-## Power Draw
+## Power Draw & Thermals
 
 "But Josef, what about your electricity bill?!" asked a colleague when learning about the dual 2.2 kW power supplies.  
 As per the management console the system (without GPUs) is drawing between 175 to 200 watts idle, 300 to 325 watts under load.  
 
+Training the 124M param GPT2 on CPU using [karpathy/nanoGPT](https://github.com/karpathy/nanoGPT) for 20 minutes (98% cpu util) resulted in CPU temps hovering around 76C and occasional max readings of 78C, with fan speeds reaching max 5550 RPM.
+
 ![this is fine meme, without flames](images/this-is-fine.jpg)
 
-## Thermals
-
-Training the 124M param GPT2 on CPU using [karpathy/nanoGPT](https://github.com/karpathy/nanoGPT) for 20 minutes (98% cpu util) resulted in CPU temps hovering around 76C and occasional max readings of 78C, with fan speeds reaching max 5550 RPM.
 
 ## Safety First
 
