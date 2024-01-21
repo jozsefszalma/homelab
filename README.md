@@ -109,6 +109,10 @@ As per the management console the system (without GPUs) is drawing between 175 t
 
 ![this is fine meme, without flames](images/this-is-fine.jpg)
 
+##Thermals
+
+Training the 124M param GPT2 on CPU using [karpathy/nanoGPT](https://github.com/karpathy/nanoGPT) for 20 minutes (98% cpu util) resulted in CPU temps hovering around 76C and occasional max readings of 78C, with fan speeds reaching max 5550 RPM.
+
 ## Safety First
 
 Obligatory disclaimer: in case I observe any sudden drops in loss, I will operate the AI-safety equipment illustrated below.
