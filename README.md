@@ -78,7 +78,7 @@ However, the fact that this was an open frame rack didn't help the noise level s
 
 ![The rack](images/rack.jpg)
 
-While waiting for the fan connectors to arrive, I decided to take some unorthodox and perhaps drastic action and glue some acoustic foam to MDF plates and hang these improvised 'acoustic panels' on two sides and the top of the rack.  
+While waiting for the fan connectors to arrive, I decided to take a somewhat unorthodox and perhaps drastic action and glue some acoustic foam to MDF plates and hang these improvised 'acoustic panels' on two sides and the top of the rack.  
 
 ![Rack with acoustic panels](images/three_sides.png)
 
