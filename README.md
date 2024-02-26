@@ -90,7 +90,7 @@ The static charge seem to be dissipated by the metal rack, the rack is grounded,
 
 ### Finally, After a Lot of Crimping
 
-Once I crimped new connectors on the Arctic fans (for future reference, [Molex 22013077](https://www.molex.com/en-us/products/part-detail/22013077)) **the noise levels decreased to 39 dB at idle (quiet library) and 55 dB during boot (dishwasher)**.  
+Once I crimped new connectors on the Arctic fans (for future reference, [Molex 22013077](https://www.molex.com/en-us/products/part-detail/22013077)) **the noise levels decreased to 39 dB at idle (quiet library) and 55 dB during boot (dishwasher)**; for context the ambient noise is around 34 dB in the given room.
 In exchange the CPU is running approximately 10C higher temperatures during Mixtral CPU inference (75C instead of 65C), which is still acceptable.  
 
 This is not the best possible result as
