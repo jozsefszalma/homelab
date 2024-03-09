@@ -124,6 +124,7 @@ A couple of things I learned meanwhile:
 * Don't be fooled by the manual, the BIOS does NOT have an option for Wake on Lan (WoL), if the board comes with the 10GbE Mellanox network adapter. I went as far as installing [Nvidia Firmware Tools (MFT)](https://network.nvidia.com/products/adapter-software/firmware-tools/) to enable WoL on the adapter, but in the end it looks like I might have just used the wrong app / wrong parameters to send the WoL packet and it might just work by default.
 * The ARCTIC fans appear to be more than enough for single slot Nvidia datacenter cards (YMMV).
 * If you are thinking about UPS-sizing, consider the wattage of your preferred GPUs before you panic at the prices of > 2000 VA units...you might not need a large unit.
+* The setup of Ubuntu 22.04 and config for deep learning went totally uneventful, do recommend. 
 * Outstanding question if one could mix various datacenter GPUs (mixed GPU population is not supported as per the manual), but as long as datacenter is not mixed with consumer hardware I don't see why not (to be tested).
 
 
