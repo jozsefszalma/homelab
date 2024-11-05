@@ -129,7 +129,7 @@ A couple of things I learned meanwhile:
 
 ## After 10 Months
 
-* Mixed GPU population is possible; I have a couple of T4 GPUs and an A2 running, and they work just fine. Given the different architectures some software trickery is needed to make them work together however (e.g. by disabling flash attention)
+* Mixed GPU population is possible; I have a couple of T4 GPUs and an A2 running, and they work just fine. Given the different architectures some software trickery is needed to make them work together however (e.g. by disabling flash attention).
 * I do not recommend putting GPUs into the extra PCI slots, as thermal management is challenging in those positions.
 
 
