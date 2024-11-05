@@ -127,6 +127,11 @@ A couple of things I learned meanwhile:
 * The setup of Ubuntu 22.04 and config for deep learning went totally uneventful, do recommend. 
 * Outstanding question if one could mix various datacenter GPUs (mixed GPU population is not supported as per the manual), but as long as datacenter is not mixed with consumer hardware I don't see why not (to be tested).
 
+## After 10 Months
+
+* Mixed GPU population is possible; I have a couple of T4 GPUs and an A2 running, and they work just fine. Given the different architectures some software trickery is needed to make them work together however (e.g. by disabling flash attention)
+* I do not recommend putting GPUs into the extra PCI slots, as thermal management is challenging in those positions.
+
 
 
 
