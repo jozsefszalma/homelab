@@ -132,6 +132,10 @@ A couple of things I learned meanwhile:
 * Mixed GPU population is possible; I have a couple of T4 GPUs and an A2 running, and they work just fine. Given the different architectures some software trickery is needed to make them work together however (e.g. by disabling flash attention).
 * I do not recommend putting GPUs into the extra PCI slots, as thermal management is challenging in those positions.
 
+## RTX 3090
+Need to jank, but possible.
+
+![image](https://github.com/user-attachments/assets/46a7e695-602e-49b0-b3bd-7382bf3867d1)
 
 
 
