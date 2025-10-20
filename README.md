@@ -1,10 +1,28 @@
 # Home Lab
-
 The bare metal in my basement  
 
-## The Platform
+## The Storage Server
+Because I'm not made of money I'm still using mechanical hard drives for bulk storage.
+For storage server I purchased a used 2U Supermicro CSE-825 (8 hot-swap and 2 fixed bays, dual Xeon E5-2620 v4).
 
-For my home lab I bought a used [Gigabyte G292-Z20 HPC/AI Server](https://www.gigabyte.com/Enterprise/GPU-Server/G292-Z20-rev-100) through eBay in January 2024.  
+### Regrets
+- As I had a bunch of NAS disks in various sizes I went with [Unraid](https://unraid.net/). However, in retrospect perhaps I should have set this up with uniform disk sizes to get proper RAID speeds (e.g. with TrueNAS) because Unraid speeds are abysmal (read is limited to single disk speed, write is even worse due to parity overhead).
+- Both DIMMs it was shipped with died within 18 months (risks of used hardware I guess).
+
+### Changes
+- I have replaced the stock fans with [Arctic P8 Max](https://www.arctic.de/en/P8-Max/ACFAN00286A) and 3D printed three of [these brackets](https://www.thingiverse.com/thing:7065738).
+- Added a Tesla P4 (because why not) and a 2.5 GbE NIC (Unraid can't saturate a 10GbE link).
+
+## The Network
+Ubiquiti Unifi gear. It just works, no regrets.
+![Networking](images/network.jpg)
+
+
+## The AI Server
+
+### The Platform
+
+I purchased a used [Gigabyte G292-Z20 HPC/AI Server](https://www.gigabyte.com/Enterprise/GPU-Server/G292-Z20-rev-100) through eBay in January 2024.  
 
 This is basically a data center server intended for AI workloads; for those who regularly work with AWS, this is roughly comparable to the technology behind the [Amazon EC2 G4dn Instances](https://aws.amazon.com/ec2/instance-types/g4/).  
 
@@ -14,11 +32,11 @@ I assume the price was 'right' because majority of the business workloads these 
 
 ![G292 Z20](images/G292_Z20_official_1.png)
 
-## Challenges
+### Challenges
 
 Why this is generally a bad idea and PITA.  
 
-If your only goal is to play with large AI models at home, then as of early-2024 a Threadripper-based workstation (or perhaps a high-end M2/M3-based Mac) would be a much better, although more expensive option.  
+If your only goal is to play with large AI models at home, then as of early-2024 a Threadripper-based workstation (or perhaps a high-end M2/M3-based Mac) would have been a much better, although more expensive option.  
 
 * **Physical Dimensions:** this thing is huge (and heavy); in order to accommodate the 8 GPUs the case is over 80 cm deep, which means finding (and transporting) a cheap rack for it is not easy.  
 ![Warning sticker](images/two_person_lift.jpeg)  
@@ -26,9 +44,9 @@ If your only goal is to play with large AI models at home, then as of early-2024
 * **Noise Levels:** Unmodified, the fans generate [noise levels](https://audiology-web.s3.amazonaws.com/migrated/NoiseChart_Poster-%208.5x11.pdf_5399b289427535.32730330.pdf) close to 100 dB during boot, certainly not suitable for residential environments.
  ![Fans in the case](images/fans_1.png)
 
-## Let's Mod It
+### Let's Mod It
 
-### The Fans
+#### The Fans
 
 There are no words to describe how insane the [stock fans](https://www.delta-fan.com/technology/three-phase-fan/pfm0812he-01bfy.html) are. They literarily SCREAM and draw over 4 amps each at max speed...and there are 8 of them.  
 ![Wind tunnel gif](images/wind-windy.gif)
@@ -71,7 +89,7 @@ For reference, the pinout of the Arctic (or any normal PC fan):
 
 Since I didn't have the right 7 pin Molex connectors or the proper crimping tool (and I didn't want to cut the connectors off the original fans just yet), I worked on the rack while I waited for the connectors to arrive.  
 
-### The Rack
+#### The Rack
 The cheapest suitable rack I found that I didn't need to rent a truck to transport was StarTech's open frame server rack line. It looks deceptively timid on marketing photos, but it has excellent build quality.  
 
 However, the fact that this was an open frame rack didn't help the noise level situation.  
@@ -88,7 +106,7 @@ The static charge seem to be dissipated by the metal rack, the rack is grounded,
 
 **The three panels (so not complete enclosure), got me approximately 10 dB decrease in noise levels**, so halved the perceived noise.
 
-### Finally, After a Lot of Crimping
+#### Finally, After a Lot of Crimping
 
 Once I crimped new connectors on the Arctic fans (for future reference, [Molex 22013077](https://www.molex.com/en-us/products/part-detail/22013077)) **the noise levels decreased to 39 dB at idle (quiet library) and 55 dB during boot (dishwasher)**; for context the ambient noise is around 34 dB in the given room.
 In exchange the CPU is running approximately 10C higher temperatures during Mixtral CPU inference (75C instead of 65C), which is still acceptable.  
@@ -102,7 +120,7 @@ The PSU fans tend to change pitch slightly for some reason (perhaps showing thei
 
 ![eye-twitch gif](images/eye.gif)
 
-## Power Draw & Thermals
+### Power Draw & Thermals
 
 "But Josef, what about your electricity bill?!" asked a colleague when learning about the dual 2.2 kW power supplies.  
 As per the management console the system (without GPUs) is drawing between 175 to 200 watts idle, 300 to 325 watts under load.  
@@ -112,13 +130,13 @@ Training the 124M param GPT2 on CPU using [karpathy/nanoGPT](https://github.com/
 ![this is fine meme, without flames](images/this-is-fine.jpg)
 
 
-## Safety First
+### Safety First
 
 Obligatory disclaimer: in case I observe any sudden drops in loss, I will operate the AI-safety equipment illustrated below.
 ![Alt text](images/ai_safety.png)  
 
 
-## After 2 Months
+### After 2 Months
 
 A couple of things I learned meanwhile:
 * Don't be fooled by the manual, the BIOS does NOT have an option for Wake on Lan (WoL), if the board comes with the 10GbE Mellanox network adapter. I went as far as installing [Nvidia Firmware Tools (MFT)](https://network.nvidia.com/products/adapter-software/firmware-tools/) to enable WoL on the adapter, but in the end it looks like I might have just used the wrong app / wrong parameters to send the WoL packet and it might just work by default.
@@ -127,12 +145,12 @@ A couple of things I learned meanwhile:
 * The setup of Ubuntu 22.04 and config for deep learning went totally uneventful, do recommend. 
 * Outstanding question if one could mix various datacenter GPUs (mixed GPU population is not supported as per the manual), but as long as datacenter is not mixed with consumer hardware I don't see why not (to be tested).
 
-## After 10 Months
+### After 10 Months
 
 * Mixed GPU population is possible; I have a couple of T4 GPUs and an A2 running, and they work just fine. Given the different architectures some software trickery is needed to make them work together however (e.g. by disabling flash attention).
 * I do not recommend putting GPUs into the extra PCI slots, as thermal management is challenging in those positions.
 
-## RTX 3090
+### RTX 3090
 Need to jank, but possible.
 
 ![image](https://github.com/user-attachments/assets/46a7e695-602e-49b0-b3bd-7382bf3867d1)
