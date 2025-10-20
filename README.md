@@ -1,22 +1,22 @@
 # Home Lab
-The bare metal in my basement  
+The bare metal in my basement.  
+
+## Table of Contents
+- [The Storage Server](#the-storage-server)
+- [The AI Server](#the-ai-server)
+- [The Network](#the-network)
 
 ## The Storage Server
-Because I'm not made of money I'm still using mechanical hard drives for bulk storage.
+Because I'm not made of money I'm still using mechanical hard drives for bulk storage.   
 For storage server I purchased a used 2U Supermicro CSE-825 (8 hot-swap and 2 fixed bays, dual Xeon E5-2620 v4).
 
 ### Regrets
 - As I had a bunch of NAS disks in various sizes I went with [Unraid](https://unraid.net/). However, in retrospect perhaps I should have set this up with uniform disk sizes to get proper RAID speeds (e.g. with TrueNAS) because Unraid speeds are abysmal (read is limited to single disk speed, write is even worse due to parity overhead).
 - Both DIMMs it was shipped with died within 18 months (risks of used hardware I guess).
 
-### Changes
+### Mods
 - I have replaced the stock fans with [Arctic P8 Max](https://www.arctic.de/en/P8-Max/ACFAN00286A) and 3D printed three of [these brackets](https://www.thingiverse.com/thing:7065738).
 - Added a Tesla P4 (because why not) and a 2.5 GbE NIC (Unraid can't saturate a 10GbE link).
-
-## The Network
-Ubiquiti Unifi gear. It just works, no regrets.
-![Networking](images/network.jpg)
-
 
 ## The AI Server
 
@@ -157,3 +157,6 @@ Need to jank, but possible.
 
 
 
+## The Network
+Ubiquiti Unifi gear. It just works, no regrets.
+![Networking](images/network.jpg)
