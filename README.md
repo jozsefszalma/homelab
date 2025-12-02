@@ -155,7 +155,19 @@ Need to jank, but possible.
 
 ![image](https://github.com/user-attachments/assets/46a7e695-602e-49b0-b3bd-7382bf3867d1)
 
+### MCIO and OCuLink
+I wanted to be able to close the case when the RTX 3090 was connected so I explored the following options:
+* Can't use 4 port OCuLink cards or 2 port MCIO cards, as those aren't low profile.  
+**Issue**: limited to x8 per rear slot.
 
+* a low profile OCuLink card with two x4 external connectors in one of the rear slots.   
+**Issue**: the only card sold on the German Amazon (the same card by like 4 different vendors under different brand names) had the connectors really close to the edge of the card which was causing issues due to the slot covering part of the bracket.
+
+* a low profile MCIO card with a single x8 external connector in one of the rear slots.
+**Issue**: only worked in the right slot with x4x4x4x4 bifurcation; I'm currently assuming the left slot is sharing PCIe lanes with either the NVMe drives or the onboard Mellanox adapter. Perhaps something like x4x4x8 might work, but run out of patience experimenting
+
+So, in the end I settled on a single port MCIO card and a x8 MCIO to x4x4 OCuLink split cable.   
+This works, but had to order from Aliexpress because it was almost impossible to find these components in Germany at reasonable prices (nothing on eBay, single seller on Amazon etc).
 
 ## The Network
 Ubiquiti Unifi gear. It just works, no regrets.
