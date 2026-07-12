@@ -1,3 +1,5 @@
+ARCHIVED REPO: I have sold most of the equipment detailed below. Keeping the writeup for the brave few.
+
 # Home Lab
 The bare metal in my basement.  
 
